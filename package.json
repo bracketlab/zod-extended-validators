@@ -1,0 +1,21 @@
+{
+  "name": "zod-extended-validators",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "description": "Extended validators for zod.",
+  "version": "1.0.0",
+  "files": [
+    "/dist/*"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "zod": "^3.22.4"
+  }
+}

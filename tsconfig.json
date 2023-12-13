@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "es2018", // Modern enough for most current environments
+    "module": "esnext", // For using modern module syntax
+    "lib": ["dom", "dom.iterable", "esnext"], // Standard libs for web apps
+    "allowJs": true, // If you have JS files you want to include
+    "skipLibCheck": true, // Speeds up compilation but may hide type errors in dependencies
+    "esModuleInterop": true, // Interoperability with CommonJS modules
+    "strict": true, // Enables all strict type-checking options
+    "forceConsistentCasingInFileNames": true, // Avoids casing issues on different OSes
+    "moduleResolution": "node", // For Node.js-style module resolution
+    "resolveJsonModule": true, // If you import JSON files in your project
+    "isolatedModules": true, // Ensures each file can be transpiled independently
+    "noEmit": false, // Emit output files like .js and .d.ts
+    "jsx": "react-jsx", // For React 17+ syntax, change if not using React
+    "incremental": true, // Speeds up subsequent builds
+    "declaration": true, // Generates .d.ts files for typings
+    "rootDir": "./src", // Root directory of source files
+    "outDir": "./dist", // Output directory for compiled files
+    "baseUrl": "./", // Base directory to resolve non-relative module names
+    "paths": {
+      "@/components/*": ["src/components/*"], // Example of path alias
+      "@/utils/*": ["src/utils/*"]
+    }
+  },
+  "include": ["src/**/*"], // Include all files in src directory
+  "exclude": ["node_modules", "dist"] // Exclude node_modules and dist directory
+}
