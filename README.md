@@ -3,7 +3,7 @@
 <p align="center">
 <a href="https://github.com/bracketlab" rel="nofollow"><img src="https://img.shields.io/badge/created%20by-@bracketlab-4BBAAB.svg" alt="Created by Bracketlab GmbH"></a>
 <a href="https://opensource.org/licenses/MIT" rel="nofollow"><img src="https://img.shields.io/github/license/colinhacks/zod" alt="License"></a>
-<a href="https://www.npmjs.com/package/zod" rel="nofollow"><img src="https://img.shields.io/github/stars/bracketlab/zod-extended-validators" alt="stars"></a>
+<a href="https://www.npmjs.com/package/zod-extended-validators" rel="nofollow"><img src="https://img.shields.io/github/stars/bracketlab/zod-extended-validators" alt="stars"></a>
 </p>
 
 Zod Extended Validators is a TypeScript library enhancing [Zod](https://www.npmjs.com/package/zod), a popular schema validation library, with additional validation functionalities. For more information, check the [npm package page](https://www.npmjs.com/package/zod-extended-validators) and the [GitHub repository](https://github.com/bracketlab/zod-extended-validators).
