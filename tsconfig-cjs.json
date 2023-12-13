@@ -6,6 +6,7 @@
     "target": "ES2015",
     "module": "CommonJS",
     "outDir": "./dist/cjs",
+    "outFileExtension": ".cjs" ,
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
