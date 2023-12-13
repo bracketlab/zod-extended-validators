@@ -56,4 +56,3 @@ Contributions to the package are welcome! Please ensure that your contributions 
 ## License
 
 This project is licensed under the MIT License.
-```
