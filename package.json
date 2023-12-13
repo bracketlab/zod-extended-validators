@@ -2,6 +2,7 @@
   "name": "zod-extended-validators",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "type": "module",
   "description": "Extended validators for zod.",
   "version": "1.0.10",
   "repository": {
