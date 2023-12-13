@@ -5,7 +5,7 @@
   "type": "module",
   "types": "./esm/index.d.ts",
   "description": "Extended validators for zod.",
-  "version": "1.0.13",
+  "version": "1.1.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/bracketlab/zod-extended-validators"
