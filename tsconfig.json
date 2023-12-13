@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2020",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
-    "skipLibCheck": true,
+    "skipLibCheck": false,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
@@ -12,11 +12,10 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
     "incremental": true,
-    "rootDir": "./src", // Root directory of source files
-    "outDir": "./dist", // Output directory for compiled files
-    "baseUrl": "./", // Base directory to resolve non-relative module names
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "baseUrl": "./",
     "paths": {
       "@/*": ["./src/*"]
     }
