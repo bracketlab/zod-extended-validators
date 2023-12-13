@@ -1,58 +1,65 @@
-
 # Zod Extended Validators
 
-Extended validators for Zod, providing additional validation functionalities to enhance your schema validations in TypeScript.
+Zod Extended Validators is a TypeScript library enhancing Zod, a popular schema validation library, with additional validation functionalities. For more information, check the [npm package page](https://www.npmjs.com/package/zod-extended-validators) and the [GitHub repository](https://github.com/bracketlab/zod-extended-validators).
 
 ## Installation
-Install the package using npm:
+
+To integrate Zod Extended Validators into your project, use npm or yarn:
+
+**Using npm:**
 ```bash
 npm install zod-extended-validators
 ```
 
-Or using yarn:
-
+**Using yarn:**
 ```bash
 yarn add zod-extended-validators
 ```
 
-## Usage
+## Quick Example
 
-Import the validators you need from the package:
-
+**Usage:**
 ```typescript
-import {
-  textField,
-  numberField,
-  booleanField,
-  requiredTextField,
-  // ... more imports
-} from 'zod-extended-validators';
+import { z } from 'zod';
+import { textField, requiredNumberField } from 'zod-extended-validators';
+
+const schema = z.object({
+  name: textField(),
+  age: requiredNumberField()
+});
+
+// Example data
+const data = { name: "John Doe", age: 30 };
+
+// Validation
+const validationResult = schema.safeParse(data);
+
+if (validationResult.success) {
+  console.log("Validation passed:", validationResult.data);
+} else {
+  console.log("Validation errors:", validationResult.error.issues);
+}
 ```
 
-## Validators
+**Result:**
+```json
+Validation passed: { "name": "John Doe", "age": 30 }
+```
 
-Here are some of the validators provided by this package:
+In this example, a schema is defined using `textField` for an optional string field and `requiredNumberField` for a mandatory number field. The `safeParse` method from Zod is then used to validate a data object, providing either a success response or a detailed error report.
 
-- `textField()`: Returns an optional string schema.
-- `numberField()`: Returns an optional number schema.
-- `booleanField()`: Returns an optional boolean schema.
-- `requiredTextField(customError?)`: Returns a required string schema with a minimum length of 1.
-- `requiredNumberField(customError?)`: Returns a required number schema.
-- `requiredIntegerField(customError?)`: Returns a required integer schema.
-- ... (and more)
+## Detailed Description
+
+Zod Extended Validators offer a variety of validators like `textField`, `numberField`, `booleanField`, `requiredTextField`, and more, each tailored for specific validation needs.
 
 ## Error Handling
 
-The package also exports `EValidationErrors` and `withArguments` for customized error handling.
+The package includes `EValidationErrors` and `withArguments` for advanced error handling, allowing custom error messages.
 
 ## Contributing
 
-Contributions to the package are welcome! Please ensure that your contributions adhere to the following guidelines:
-
-- Write clean, documented, and tested code.
-- Follow the existing coding style.
-- Update the README with relevant information, if necessary.
+Contributors should adhere to guidelines such as clean, documented, and tested code, following the existing style, and updating the README as needed.
 
 ## License
 
-This project is licensed under the MIT License.
+The library is available under the MIT License.
