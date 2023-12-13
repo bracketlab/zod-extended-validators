@@ -10,8 +10,8 @@
   "scripts": {
     "build": "tsc"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "bracketlab GmbH",
+  "license": "MIT",
   "devDependencies": {
     "typescript": "^5.3.3"
   },
