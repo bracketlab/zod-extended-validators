@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es2020",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": false,
     "strict": true,
+    "target": "es5",
+    "module": "commonjs",
+    "declaration": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": false,
     "esModuleInterop": true,
-    "module": "commonjs",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -19,7 +20,6 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "declaration": true,  // Add this line
     "declarationMap": true  // Optional, if you want source map for declarations
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
