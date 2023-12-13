@@ -1,12 +1,10 @@
-```markdown
+
 # Zod Extended Validators
 
 Extended validators for Zod, providing additional validation functionalities to enhance your schema validations in TypeScript.
 
 ## Installation
-
 Install the package using npm:
-
 ```bash
 npm install zod-extended-validators
 ```
@@ -59,11 +57,3 @@ Contributions to the package are welcome! Please ensure that your contributions 
 
 This project is licensed under the MIT License.
 ```
-
-> _See also:_ 
-> 📘 [Zod Documentation](https://www.google.com/search?q=zod+documentation)
-> 💾 [npm Package Management](https://www.google.com/search?q=npm+package+management)
-
-> _You may also enjoy:_ 
-> 🧪 [Typescript Testing Best Practices](https://www.google.com/search?q=typescript+testing+best+practices)
-> 🖥️ [Software Engineering Principles](https://www.google.com/search?q=software+engineering+principles)
