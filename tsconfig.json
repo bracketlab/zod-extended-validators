@@ -5,7 +5,7 @@
     "skipLibCheck": false,
     "strict": true,
     "target": "es5",
-    "module": "commonjs",
+    "module": "ESNext",
     "declaration": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": false,
