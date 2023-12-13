@@ -1,6 +1,12 @@
 # Zod Extended Validators
 
-Zod Extended Validators is a TypeScript library enhancing Zod, a popular schema validation library, with additional validation functionalities. For more information, check the [npm package page](https://www.npmjs.com/package/zod-extended-validators) and the [GitHub repository](https://github.com/bracketlab/zod-extended-validators).
+<p align="center">
+<a href="https://github.com/bracketlab" rel="nofollow"><img src="https://img.shields.io/badge/created%20by-@bracketlab-4BBAAB.svg" alt="Created by Bracketlab GmbH"></a>
+<a href="https://opensource.org/licenses/MIT" rel="nofollow"><img src="https://img.shields.io/github/license/colinhacks/zod" alt="License"></a>
+<a href="https://www.npmjs.com/package/zod" rel="nofollow"><img src="https://img.shields.io/github/stars/bracketlab/zod-extended-validators" alt="stars"></a>
+</p>
+
+Zod Extended Validators is a TypeScript library enhancing [Zod](https://www.npmjs.com/package/zod), a popular schema validation library, with additional validation functionalities. For more information, check the [npm package page](https://www.npmjs.com/package/zod-extended-validators) and the [GitHub repository](https://github.com/bracketlab/zod-extended-validators).
 
 ## Installation
 
@@ -46,15 +52,41 @@ if (validationResult.success) {
 Validation passed: { "name": "John Doe", "age": 30 }
 ```
 
-In this example, a schema is defined using `textField` for an optional string field and `requiredNumberField` for a mandatory number field. The `safeParse` method from Zod is then used to validate a data object, providing either a success response or a detailed error report.
 
-## Detailed Description
+## Available Validators
 
-Zod Extended Validators offer a variety of validators like `textField`, `numberField`, `booleanField`, `requiredTextField`, and more, each tailored for specific validation needs.
+Here are some of the validators provided by Zod Extended Validators:
 
-## Error Handling
+### Basic Field Validators
+- `textField()`: Returns an optional string schema, suitable for text inputs.
+- `numberField()`: Returns an optional number schema, used for numeric inputs.
+- `booleanField()`: Returns an optional boolean schema, typically for checkboxes or toggle inputs.
 
-The package includes `EValidationErrors` and `withArguments` for advanced error handling, allowing custom error messages.
+### Required Field Validators
+- `requiredTextField(customError?)`: Ensures a string field is not empty, with a custom error option.
+- `requiredNumberField(customError?)`: Validates a number field, ensuring it's provided, with custom error handling.
+- `requiredIntegerField(customError?)`: Similar to `requiredNumberField` but ensures the number is an integer.
+- `requiredBooleanField(customError?)`: Validates a boolean field, ensuring it's true (useful for agreements or confirmations).
+
+### Specialized Field Validators
+- `requiredPostalCodeField(customError?)`: Validates postal codes with a specific length requirement.
+- `requiredPhoneNumberField(customError?)`: Ensures a minimum length for phone numbers.
+- `requiredPositiveNumberField(customError?)`: Checks for positive numbers, either integers or decimals.
+- `requiredPercentageField(customError?)`: Validates percentages, ensuring values are within a valid range.
+- `emailField(customError?)`: Validates email addresses.
+- `passwordField(customError?)`: Validates passwords with specific complexity requirements.
+
+### Regex-Based Field Validators
+- `onlyNumbersLettersCommasPointsField(customError?)`: Validates input against a regex allowing only specific characters.
+- `onlyNumbersLettersHyphenField(customError?)`: Similar to the above but includes hyphens.
+- `IBANField(customError?)`: Validates International Bank Account Numbers (IBAN) using a comprehensive regex.
+- `BICField(customError?)`: Validates Bank Identifier Codes (BIC).
+- `salesTaxIdField(customError?)`: Validates various formats of sales tax IDs.
+
+### Additional Utility Validators
+- `withMaxWords(zodField, maxWords, customError?)`: Extends a Zod string field to limit the number of words.
+
+Each of these validators can be imported and used to create robust, fine-tuned validation schemas for your TypeScript applications, ensuring data integrity and user input validation according to specific rules and formats.
 
 ## Contributing
 
