@@ -18,6 +18,6 @@ export {
   BICField,
   salesTaxIdField,
   withMaxWords,
-} from "./validation.fields";
+} from "./src/validation.fields";
 
-export { EValidationErrors, withArguments } from "./validation.errors";
+export { EValidationErrors, withArguments } from "./src/validation.errors";
