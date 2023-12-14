@@ -16,7 +16,7 @@
   ],
   "scripts": {
     "build": "tsup index.ts --format cjs,esm --dts",
-    "release": "npm run build && changeset publish",
+    "release": "pnpm run build && changeset publish",
     "lint": "tsc"
   },
   "author": "bracketlab GmbH",
