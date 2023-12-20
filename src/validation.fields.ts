@@ -47,9 +47,15 @@ export const requiredPostalCodeField = (customError?: EValidationErrors) => {
 };
 
 export const requiredPhoneNumberField = (customError?: EValidationErrors) => {
+  const numericPattern = /^\d+$/;
   return z
-    .string()
-    .min(4, { message: customError ?? EValidationErrors.ERROR_INVALID_PHONE_NUMBER });
+  .string()
+  .regex(numericPattern, {
+    message: customError ?? EValidationErrors.ERROR_INVALID_PHONE_NUMBER
+  })
+  .min(4, {
+    message: customError ?? EValidationErrors.ERROR_INVALID_PHONE_NUMBER
+  });
 };
 
 export const requiredPositiveNumberField = (customError?: EValidationErrors) => {
