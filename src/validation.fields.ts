@@ -100,6 +100,31 @@ export const emailField = (customError?: EValidationErrors) => {
   return z.string().email({ message: customError ?? EValidationErrors.ERROR_INVALID_EMAIL });
 };
 
+export const personalEmailField = (customError?: EValidationErrors) => {
+  const FORBIDDEN_EMAILS = [
+    'info',
+    'kontakt',
+    'contact',
+    'hello',
+    'noreply',
+    'newsletter',
+    'marketing',
+    'office',
+    'team',
+    'webmaster',
+    'sales',
+    'support',
+    'admin',
+  ];
+
+  return emailField().refine(
+    (email: string) => {
+      const emailFirstPart = email.split('@')[0]?.toLowerCase();
+      return emailFirstPart && !FORBIDDEN_EMAILS.includes(emailFirstPart);
+    },
+    { message: customError ?? EValidationErrors.ERROR_MUST_BE_PERSONAL_EMAIL }
+  )
+}
 export const passwordField = (customError?: EValidationErrors) => {
   const passwordRegex = new RegExp(
     '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$'
