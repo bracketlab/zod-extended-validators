@@ -5,7 +5,7 @@
   "types": "dist/index.d.ts",
   "type": "module",
   "description": "Extended validators for zod.",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/bracketlab/zod-extended-validators"
@@ -23,8 +23,8 @@
   "license": "MIT",
   "devDependencies": {
     "@changesets/cli": "^2.26.0",
-    "typescript": "^5.3.3",
-    "tsup": "^8.0.1"
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3"
   },
   "dependencies": {
     "zod": "^3.22.4"
