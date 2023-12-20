@@ -11,6 +11,7 @@ export {
   requiredPositiveNumberField,
   requiredPercentageField,
   emailField,
+  personalEmailField,
   passwordField,
   onlyNumbersLettersCommasPointsField,
   onlyNumbersLettersHyphenField,
