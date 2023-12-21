@@ -209,15 +209,17 @@ export const withMaxWords = (
   maxWords: number,
   customError?: EValidationErrors
 ) => {
-  return zodField.refine(
-    (text) => {
-      const words = text.split(/\s+/);
-      return words.length < maxWords;
+    return zodField.refine(
+    (value) => {
+      if (!value) {
+        return true;
+      }
+      const wordRegex = /\w+/g; // Matches any 1 or more alphanumeric characters (including _)
+      const words = value.match(wordRegex) || []; // Extract all matching words
+      return words.length <= maxWords;
     },
     {
-      message: withArguments(customError ?? EValidationErrors.ERROR_MAX_WORDS_EXCEEDED, {
-        maxWords: `${maxWords}`,
-      }),
+      message: withArguments(customError ?? EValidationErrors.ERROR_MAX_WORDS_EXCEEDED, { maxWords }),
     }
   );
 };
