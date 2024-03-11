@@ -1,13 +1,14 @@
 export {
   textField,
   numberField,
-  booleanField, 
-  requiredTextField, 
-  requiredNumberField, 
-  requiredIntegerField, 
-  requiredBooleanField, 
-  requiredPostalCodeField, 
-  requiredPhoneNumberField, 
+  booleanField,
+  postalCodeField,
+  requiredTextField,
+  requiredNumberField,
+  requiredIntegerField,
+  requiredBooleanField,
+  requiredPostalCodeField,
+  requiredPhoneNumberField,
   requiredPositiveNumberField,
   requiredPercentageField,
   emailField,
@@ -19,6 +20,7 @@ export {
   BICField,
   salesTaxIdField,
   withMaxWords,
-} from "./src/validation.fields";
+  nonEmpty
+} from './src/validation.fields'
 
-export { EValidationErrors, withArguments } from "./src/validation.errors";
+export { EValidationErrors, withArguments } from './src/validation.errors'
