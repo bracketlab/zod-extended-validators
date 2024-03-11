@@ -23,9 +23,14 @@ export const postalCodeField = (customError?: EValidationErrors) => {
 }
 
 export const requiredTextField = (customError?: EValidationErrors) => {
-  return z.string().min(1, {
-    message: customError ?? EValidationErrors.ERROR_MUST_NOT_BE_EMPTY
-  })
+  return z
+    .string()
+    .min(1, {
+      message: customError ?? EValidationErrors.ERROR_MUST_NOT_BE_EMPTY
+    })
+    .refine(value => !!value.trim(), {
+      message: customError ?? EValidationErrors.ERROR_MUST_NOT_BE_EMPTY
+    })
 }
 
 export const requiredNumberField = (customError?: EValidationErrors) => {
@@ -149,11 +154,10 @@ export const personalEmailField = (customError?: EValidationErrors) => {
   )
 }
 export const passwordField = (customError?: EValidationErrors) => {
-  const passwordRegex = new RegExp(
-    '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$'
-  )
+  const passwordRegex =
+    /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
 
-  return requiredTextField().regex(passwordRegex, {
+  return requiredTextField().refine(value => passwordRegex.test(value), {
     message: customError ?? EValidationErrors.ERROR_INVALID_PASSWORD
   })
 }
@@ -186,7 +190,7 @@ export const IBANField = (customError?: EValidationErrors) => {
   const IBAN_REGEX =
     /^(?:(?:IT|SM)\d{2}[A-Z]\d{22}|CY\d{2}[A-Z]\d{23}|NL\d{2}[A-Z]{4}\d{10}|LV\d{2}[A-Z]{4}\d{13}|(?:BG|BH|GB|IE)\d{2}[A-Z]{4}\d{14}|GI\d{2}[A-Z]{4}\d{15}|RO\d{2}[A-Z]{4}\d{16}|KW\d{2}[A-Z]{4}\d{22}|MT\d{2}[A-Z]{4}\d{23}|NO\d{13}|(?:DK|FI|GL|FO)\d{16}|MK\d{17}|(?:AT|EE|KZ|LU|XK)\d{18}|(?:BA|HR|LI|CH|CR)\d{19}|(?:GE|DE|LT|ME|RS)\d{20}|IL\d{21}|(?:AD|CZ|ES|MD|SA)\d{22}|PT\d{23}|(?:BE|IS)\d{24}|(?:FR|MR|MC)\d{25}|(?:AL|DO|LB|PL)\d{26}|(?:AZ|HU)\d{27}|(?:GR|MU)\d{28})$/
 
-  return requiredTextField().regex(IBAN_REGEX, {
+  return requiredTextField().refine(value => IBAN_REGEX.test(value), {
     message: customError ?? EValidationErrors.ERROR_INVALID_IBAN
   })
 }
@@ -195,7 +199,7 @@ export const BICField = (customError?: EValidationErrors) => {
   // https://gist.github.com/Fedik/f050c65fa6cc93973fc65df9d00357f5
   const BIC_REGEX =
     /^([A-Z]{6}[A-Z2-9][A-NP-Z1-9])(X{3}|[A-WY-Z0-9][A-Z0-9]{2})?$/
-  return requiredTextField().regex(BIC_REGEX, {
+  return requiredTextField().refine(value => BIC_REGEX.test(value), {
     message: customError ?? EValidationErrors.ERROR_INVALID_BIC
   })
 }
@@ -231,9 +235,12 @@ export const salesTaxIdField = (customError?: EValidationErrors) => {
       '(SI)[0-9]{8}|' +
       '(SK)[0-9]{10})$'
   )
-  return requiredTextField().regex(salesTaxIdField_REGEX, {
-    message: customError ?? EValidationErrors.ERROR_INVALID_SALES_TAX_ID
-  })
+  return requiredTextField().refine(
+    value => salesTaxIdField_REGEX.test(value),
+    {
+      message: customError ?? EValidationErrors.ERROR_INVALID_SALES_TAX_ID
+    }
+  )
 }
 
 export const withMaxWords = (
@@ -255,20 +262,6 @@ export const withMaxWords = (
         customError ?? EValidationErrors.ERROR_MAX_WORDS_EXCEEDED,
         { maxWords }
       )
-    }
-  )
-}
-
-export const nonEmpty = (
-  zodField: z.ZodString,
-  customError?: EValidationErrors
-) => {
-  return zodField.refine(
-    value => {
-      return !value.trim()
-    },
-    {
-      message: customError ?? EValidationErrors.ERROR_MUST_NOT_BE_EMPTY
     }
   )
 }

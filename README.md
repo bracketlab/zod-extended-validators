@@ -94,7 +94,6 @@ Here are some of the validators provided by Zod Extended Validators:
 ### Additional Utility Validators
 
 - `withMaxWords(zodField, maxWords, customError?)`: Extends a Zod string field to limit the number of words.
-- `nonEmpty(zodField, customError?)`: Extends a Zod string field to not allow whitespaces.
 
 Each of these validators can be imported and used to create robust, fine-tuned validation schemas for your TypeScript applications, ensuring data integrity and user input validation according to specific rules and formats.
 

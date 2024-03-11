@@ -19,8 +19,7 @@ export {
   IBANField,
   BICField,
   salesTaxIdField,
-  withMaxWords,
-  nonEmpty
+  withMaxWords
 } from './src/validation.fields'
 
 export { EValidationErrors, withArguments } from './src/validation.errors'
