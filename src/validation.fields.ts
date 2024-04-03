@@ -18,8 +18,7 @@ export const postalCodeField = (customError?: EValidationErrors) => {
     .string()
     .length(5, {
       message: customError ?? EValidationErrors.ERROR_INVALID_POSTAL_CODE
-    })
-    .optional()
+    }).or(z.string().optional())
 }
 
 export const requiredTextField = (customError?: EValidationErrors) => {
