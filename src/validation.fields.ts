@@ -16,9 +16,9 @@ export const booleanField = () => {
 export const postalCodeField = (customError?: EValidationErrors) => {
   return z
     .string()
-    .length(5, {
-      message: customError ?? EValidationErrors.ERROR_INVALID_POSTAL_CODE
-    }).or(z.string().optional())
+    .refine(value => !value || value.length === 5, {
+      message: customError ?? EValidationErrors.ERROR_INVALID_POSTAL_CODE,
+    })
 }
 
 export const requiredTextField = (customError?: EValidationErrors) => {
