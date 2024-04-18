@@ -153,8 +153,7 @@ export const personalEmailField = (customError?: EValidationErrors) => {
   )
 }
 export const passwordField = (customError?: EValidationErrors) => {
-  const passwordRegex =
-    /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
+  const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[ !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~§/`=;_\-'+°´\[\]]).{8,}$/
 
   return requiredTextField().refine(value => passwordRegex.test(value), {
     message: customError ?? EValidationErrors.ERROR_INVALID_PASSWORD
