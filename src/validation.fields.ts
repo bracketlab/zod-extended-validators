@@ -17,6 +17,14 @@ export const postalCodeField = (customError?: EValidationErrors) => {
   return z
     .string()
     .length(5, {
+      message: customError ?? EValidationErrors.ERROR_INVALID_POSTAL_CODE
+    }).or(z.string().optional())
+}
+
+export const onlyNumberPostalCodeField = (customError?: EValidationErrors) => {
+  return z
+    .string()
+    .length(5, {
       message: customError ?? EValidationErrors.ERROR_INVALID_POSTAL_CODE,
     })
     .regex(/^\d*$/, {
@@ -69,6 +77,12 @@ export const requiredBooleanField = (customError?: EValidationErrors) => {
 }
 
 export const requiredPostalCodeField = (customError?: EValidationErrors) => {
+  return z.string().length(5, {
+    message: customError ?? EValidationErrors.ERROR_INVALID_POSTAL_CODE
+  })
+}
+
+export const requiredOnlyNumberPostalCodeField = (customError?: EValidationErrors) => {
   return z
     .string()
     .length(5, {
