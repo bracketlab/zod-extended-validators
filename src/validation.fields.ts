@@ -21,6 +21,25 @@ export const postalCodeField = (customError?: EValidationErrors) => {
     }).or(z.string().optional())
 }
 
+export const onlyNumberPostalCodeField = (customError?: EValidationErrors) => {
+  return z
+    .string()
+    .length(5, {
+      message: customError ?? EValidationErrors.ERROR_INVALID_POSTAL_CODE,
+    })
+    .regex(/^\d*$/, {
+      message: customError ?? EValidationErrors.ERROR_INVALID_POSTAL_CODE,
+    })
+    .or(
+      z
+        .string()
+        .regex(/^\d*$/, {
+          message: customError ?? EValidationErrors.ERROR_INVALID_POSTAL_CODE,
+        })
+        .optional()
+    );
+};
+
 export const requiredTextField = (customError?: EValidationErrors) => {
   return z
     .string()
@@ -62,6 +81,17 @@ export const requiredPostalCodeField = (customError?: EValidationErrors) => {
     message: customError ?? EValidationErrors.ERROR_INVALID_POSTAL_CODE
   })
 }
+
+export const requiredOnlyNumberPostalCodeField = (customError?: EValidationErrors) => {
+  return z
+    .string()
+    .length(5, {
+      message: customError ?? EValidationErrors.ERROR_INVALID_POSTAL_CODE,
+    })
+    .regex(/^\d*$/, {
+      message: customError ?? EValidationErrors.ERROR_INVALID_POSTAL_CODE,
+    });
+};
 
 export const requiredPhoneNumberField = (customError?: EValidationErrors) => {
   const numericPattern = /^\d+$/
