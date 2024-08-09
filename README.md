@@ -29,24 +29,24 @@ yarn add zod-extended-validators
 **Usage:**
 
 ```typescript
-import { z } from 'zod'
-import { textField, requiredNumberField } from 'zod-extended-validators'
+import { z } from "zod";
+import { textField, requiredNumberField } from "zod-extended-validators";
 
 const schema = z.object({
   name: textField(),
-  age: requiredNumberField()
-})
+  age: requiredNumberField(),
+});
 
 // Example data
-const data = { name: 'John Doe', age: 30 }
+const data = { name: "John Doe", age: 30 };
 
 // Validation
-const validationResult = schema.safeParse(data)
+const validationResult = schema.safeParse(data);
 
 if (validationResult.success) {
-  console.log('Validation passed:', validationResult.data)
+  console.log("Validation passed:", validationResult.data);
 } else {
-  console.log('Validation errors:', validationResult.error.issues)
+  console.log("Validation errors:", validationResult.error.issues);
 }
 ```
 
@@ -72,10 +72,10 @@ Here are some of the validators provided by Zod Extended Validators:
 - `requiredNumberField(customError?)`: Validates a number field, ensuring it's provided, with custom error handling.
 - `requiredIntegerField(customError?)`: Similar to `requiredNumberField` but ensures the number is an integer.
 - `requiredBooleanField(customError?)`: Validates a boolean field, ensuring it's true (useful for agreements or confirmations).
+- `requiredOnlyNumberPostalCodeField(customError?)`: Ensures that the postal code field is not empty and contains only numeric characters.
 
 ### Specialized Field Validators
 
-- `requiredPostalCodeField(customError?)`: Validates postal codes with a specific length requirement.
 - `requiredPhoneNumberField(customError?)`: Ensures a minimum length for phone numbers.
 - `requiredPositiveNumberField(customError?)`: Checks for positive numbers, either integers or decimals.
 - `requiredPercentageField(customError?)`: Validates percentages, ensuring values are within a valid range.
@@ -90,6 +90,7 @@ Here are some of the validators provided by Zod Extended Validators:
 - `IBANField(customError?)`: Validates International Bank Account Numbers (IBAN) using a comprehensive regex.
 - `BICField(customError?)`: Validates Bank Identifier Codes (BIC).
 - `salesTaxIdField(customError?)`: Validates various formats of sales tax IDs.
+- `onlyNumberPostalCodeField(customError?)`: Validates postal codes to ensure they contain only numeric characters.
 
 ### Additional Utility Validators
 
