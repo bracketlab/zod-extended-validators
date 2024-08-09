@@ -19,7 +19,9 @@ export {
   IBANField,
   BICField,
   salesTaxIdField,
-  withMaxWords
+  withMaxWords,
+  onlyNumberPostalCodeField,
+  requiredOnlyNumberPostalCodeField
 } from './src/validation.fields'
 
 export { EValidationErrors, withArguments } from './src/validation.errors'
