@@ -34,7 +34,7 @@ export enum EValidationErrors {
 }
 
 export const withArguments = (
-  message: EValidationErrors,
+  message: string,
   args: { [key: string]: string | number }
 ) => {
   // message: ERROR_FILE_SIZE_LIMIT_EXCEEDED ; args: { min: 1, max: 10}
