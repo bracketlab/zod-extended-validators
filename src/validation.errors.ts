@@ -30,10 +30,11 @@ export enum EValidationErrors {
   ERROR_MUST_BE_PERSONAL_EMAIL = 'ERROR_MUST_BE_PERSONAL_EMAIL',
   ERROR_INVALID_DATE = 'ERROR_INVALID_DATE',
   ERROR_NO_DUPLICATE_DOMAIN = "ERROR_NO_DUPLICATE_DOMAIN",
+  ERROR_MIN_LENGTH = "ERROR_MIN_LENGTH",
 }
 
 export const withArguments = (
-  message: EValidationErrors,
+  message: string,
   args: { [key: string]: string | number }
 ) => {
   // message: ERROR_FILE_SIZE_LIMIT_EXCEEDED ; args: { min: 1, max: 10}
