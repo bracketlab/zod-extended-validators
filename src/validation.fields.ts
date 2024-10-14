@@ -24,19 +24,12 @@ export const postalCodeField = (customError?: EValidationErrors) => {
 export const onlyNumberPostalCodeField = (customError?: EValidationErrors) => {
   return z
     .string()
-    .length(5, {
-      message: customError ?? EValidationErrors.ERROR_INVALID_POSTAL_CODE,
-    })
-    .regex(/^\d*$/, {
-      message: customError ?? EValidationErrors.ERROR_INVALID_POSTAL_CODE,
-    })
-    .or(
-      z
-        .string()
-        .regex(/^\d*$/, {
-          message: customError ?? EValidationErrors.ERROR_INVALID_POSTAL_CODE,
-        })
-        .optional()
+    .optional()
+    .refine(
+      (val) => !val || /^\d{5}$/.test(val),
+      {
+        message: customError ?? EValidationErrors.ERROR_INVALID_POSTAL_CODE,
+      },
     );
 };
 
