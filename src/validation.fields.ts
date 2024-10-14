@@ -26,7 +26,7 @@ export const onlyNumberPostalCodeField = (customError?: EValidationErrors) => {
     .string()
     .optional()
     .refine(
-      (val) => val === undefined || val === '' || /^\d{5}$/.test(val),
+      (val) => !val || /^\d{5}$/.test(val),
       {
         message: customError ?? EValidationErrors.ERROR_INVALID_POSTAL_CODE,
       },
