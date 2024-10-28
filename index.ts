@@ -9,6 +9,7 @@ export {
   requiredBooleanField,
   requiredPostalCodeField,
   requiredPhoneNumberField,
+  optionalPhoneNumberField,
   requiredPositiveNumberField,
   requiredPercentageField,
   emailField,
