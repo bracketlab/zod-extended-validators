@@ -86,11 +86,12 @@ export const requiredOnlyNumberPostalCodeField = (customError?: EValidationError
     });
 };
 
+const PHONE_NUMBER_PATTERN = /^\+?\d+$/;
+
 export const requiredPhoneNumberField = (customError?: EValidationErrors) => {
-  const numericPattern = /^\+?\d+$/;
   return z
     .string()
-    .regex(numericPattern, {
+    .regex(PHONE_NUMBER_PATTERN, {
       message: customError ?? EValidationErrors.ERROR_INVALID_PHONE_NUMBER
     })
     .min(4, {
@@ -99,11 +100,10 @@ export const requiredPhoneNumberField = (customError?: EValidationErrors) => {
 }
 
 export const optionalPhoneNumberField = (customError?: EValidationErrors) => {
-  const numericPattern = /^\+?\d+$/;
   return z
     .string()
     .optional()
-    .refine((value) => !value || numericPattern.test(value), {
+    .refine((value) => !value || PHONE_NUMBER_PATTERN.test(value), {
       message: customError ?? EValidationErrors.ERROR_INVALID_PHONE_NUMBER,
     })
     .refine((value) => !value || value.length >= 4, {
