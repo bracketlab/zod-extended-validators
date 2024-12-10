@@ -87,7 +87,7 @@ export const requiredOnlyNumberPostalCodeField = (customError?: EValidationError
 };
 
 export const requiredPhoneNumberField = (customError?: EValidationErrors) => {
-  const numericPattern = /^\d+$/
+  const numericPattern = /^\+?\d+$/;
   return z
     .string()
     .regex(numericPattern, {
@@ -99,7 +99,7 @@ export const requiredPhoneNumberField = (customError?: EValidationErrors) => {
 }
 
 export const optionalPhoneNumberField = (customError?: EValidationErrors) => {
-  const numericPattern = /^\d+$/;
+  const numericPattern = /^\+?\d+$/;
   return z
     .string()
     .optional()
